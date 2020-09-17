@@ -23,9 +23,14 @@ mongoose.connect(
 }).catch(err=>console.log("CONNECTION ERROR: ",err))
 
 // routes
+
 app.use(require("./routes/api.js"));
 
 
+app.get('/', function(request, response) {
+  var result = 'App is running'
+  response.send(result);
+})
 
 app.listen(PORT,() => {
   console.log(`App running on port ${PORT}!`);
